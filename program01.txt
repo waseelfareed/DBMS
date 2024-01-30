@@ -1,0 +1,81 @@
+PROGRAM=1
+A) create the following relation for the student
+student (regno: string, name: string, class: string, bdate: date, marks1: int, marks2:int, marks3  : int)
+ 1.Enter atleast five tuples of the above relation
+ 2.Demonstrate the usage of following clauses for the above relations
+a. where
+c. having
+b. orderby
+d. group by
+3. Demonstrate the usage of following clauses for the above relations
+a. sum
+d. like
+b. avg
+e. Between
+c. count
+k. max and min
+4. demonstrate the rollback and commit command for the above relation.
+
+create table std1
+(
+regno varchar (20) primary key,
+name  varchar (20),
+class  varchar (20),
+bdate date,
+marks1 int,
+marks2 int,
+marks3 int
+);
+
+
+insert into std1 values('1','adil','BSC','12-jun-2004',50,70,90);
+insert into std1 values('2','fayaz','BSC','13-jun-2003',80,80,50);
+insert into std1 values('3','kaif','BED','14-jun-2001',60,60,80);
+insert into std1 values('4','ahti','BSE','15-jun-2002',40,50,50);
+insert into std1 values('5','ehab','BSC','16-jun-2001',70,40,70);
+
+2. demonstrate the usage of following classes 
+
+ a)where
+    
+select *from std where name='kaif';
+
+ b) order by
+
+select *from std1 order by class ASC;
+
+ c) having
+
+select regno,name,marks1 from std group by regno, name.marks1 having marks1 > 65;
+
+ d) group by
+
+select class from std group by class;
+
+
+3. Demonstrate the usage of the following 
+
+  a) sum
+
+select sum (marks1) from std;
+
+  b) avg
+
+select avg (marks1) from std;
+
+  c) count
+
+select count(regno) from std;
+
+ d) like
+
+select *from std where 'class' like BSE;
+
+ e) between
+
+select *from std where 'marks1' between 80 and 90;
+
+ f) max and min
+
+select min(marks1) as lowest_marks from std;
+select max(marks1) as highest_marks from std;
